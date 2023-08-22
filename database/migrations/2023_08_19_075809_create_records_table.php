@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 return new class extends Migration
 {
@@ -17,12 +18,12 @@ return new class extends Migration
             $table->id();
             $table->time('time');
             $table->date('date');
-            $table->foreignId('trainingMenu_id');
             $table->float('weight', 3, 1);
             $table->float('BFP', 2, 1);
-            $table->foreignId('user_id');
             $table->timestamps();
             $table->softDeletes();
+            $table->foreignId('trainingmenu_id')->constrained('trainingmenus')->onDelete('cascade');
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
         });
     }
 
