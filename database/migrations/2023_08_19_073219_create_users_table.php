@@ -17,11 +17,15 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name', 20);
-            $table->enum('gender', ['M', 'F']);
-            $table->float('height', 3, 1);
-            $table->float('weight', 3, 1);
-            $table->float('BFP', 2, 1);
-            $table->float('goal', 3, 1);
+            $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('password');
+            $table->enum('gender', ['M', 'F'])->nullable();
+            $table->float('height', 3, 1)->nullable();
+            $table->float('weight', 3, 1)->nullable();
+            $table->float('BFP', 2, 1)->nullable();
+            $table->float('goal', 3, 1)->nullable();
+            $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();
         });

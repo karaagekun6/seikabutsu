@@ -17,12 +17,27 @@ class TrainingMenuSeeder extends Seeder
     public function run()
     {
         DB::table('trainingmenus')->insert([
-            'title' => '運動メニュー',
-            'menu1'=> '腹筋',
-            'menu2' => '腕立て伏せ',
-            'menu3' => 'スクワット',
-            'menu4' => 'プランク',
-            'menu5' => 'ヒップリフト',
+            'name' => '腹筋',
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+            ]);
+        DB::table('trainingmenus')->insert([
+            'name' => '腕立て伏せ',
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+            ]);
+        DB::table('trainingmenus')->insert([
+            'name' => 'スクワット',
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+            ]);
+         DB::table('trainingmenus')->insert([
+            'name' => 'プランク',
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+            ]);
+         DB::table('trainingmenus')->insert([
+            'name' => 'ヒップリフト',
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
             ]);
