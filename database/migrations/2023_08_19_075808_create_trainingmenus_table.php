@@ -16,12 +16,7 @@ return new class extends Migration
     {
         Schema::create('trainingmenus', function (Blueprint $table) {
             $table->id();
-            $table->string('title', 10);
-            $table->string('menu1', 20);
-            $table->string('menu2', 20);
-            $table->string('menu3', 20);
-            $table->string('menu4', 20);
-            $table->string('menu5', 20);
+            $table->string('name', 10);
             $table->timestamps();
         });
     }
