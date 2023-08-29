@@ -1,9 +1,10 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RecordController;
-
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\TrainingmenuController;
+use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,19 +17,23 @@ use App\Http\Controllers\RecordController;
 */
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/', [RecordController::class, 'index'])->name('index')->middleware('auth');
-    Route::get('/', function() {
-    return view('records.index');
-    });
+
+Route::controller(RecordController::class)->middleware(['auth'])->group(function(){
+    Route::get('/', 'index')->name('index');
+    Route::post('/records', 'store')->name('store');
+    Route::get('/records/create', 'create')->name('create');
+    Route::get('/records/{record}', 'show')->name('show');
+    Route::put('/records/{record}', 'update')->name('update');
+    Route::delete('/records/{record}', 'delete')->name('delete');
+    Route::get('/records/{record}/edit', 'edit')->name('edit');
+    
+});
+
+Route::get('/users/{user}', [UserController::class,'index'])->middleware("auth");
 
 
 
