@@ -15,5 +15,4 @@
         </div>
     </div>
     
-     　　ログインユーザー:{{ Auth::user()->name }}
 </x-app-layout>
