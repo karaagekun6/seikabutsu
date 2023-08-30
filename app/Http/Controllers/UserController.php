@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Record;
+use App\Models\User;
+use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
@@ -13,5 +14,9 @@ class UserController extends Controller
     return $user->get();
     //
     }
-    
+ 
+    public function usercreate()
+{
+    return view('records.usercreate');
+}
 }

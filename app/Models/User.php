@@ -21,6 +21,11 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'gender',
+        'height',
+        'weight',
+        'goal,'
+        
     ];
 
     /**
@@ -42,8 +47,10 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
     
+   
+    
     public function records()
     {
-        return $this->hasMany(Record::class);
+        return $this->hasOne(Record::class);
     }
 }
