@@ -18,15 +18,15 @@
         <h2 class='BFP'>
             {{ $record->BFP }}
         </h2>
-        <div class="content">
-            <div class="content__post">
-                <h3>本文</h3>
+        <div class="body">
+            <div class="body_record">
+                <h3>コメント</h3>
                 <p>{{ $record->body }}</p>   
                 <a href="/users/{{ $user->id }}">{{ $user->name }}</a>
             </div>
         </div>
         <div class="edit">
-            <a href="/records/{{ $record->id }}/edit">edit</a>
+            <a href="/records/{{ $record->id }}/edit">編集</a>
             </div>
         <div class="footer">
             <a href="/">戻る</a>

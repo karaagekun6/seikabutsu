@@ -4,12 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illunminate\Database\Eloquent\SoftDeletes;
+
 
 class Record extends Model
 {
     use HasFactory;
-    use SoftDeletes;
+    
     
     protected $fillable = [
         'weight',

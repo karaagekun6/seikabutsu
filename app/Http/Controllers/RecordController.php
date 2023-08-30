@@ -17,10 +17,20 @@ class RecordController extends Controller
         return view('records/index')->with(['records'=> $record->get()]);
         
     }
+    public function store (RecordRequest $request, Record $record)
+    {
+        $input = $request['record'];
+        $input += ['user_id' => $request->user()->id];
+        $record->fill($input)->save();
+        return redirect('/records/' . $record->id);
+    }    //
+    
     public function show(Record $record)
 {
     return view ('records.show')->with(['record' => $record]);
 }    
+
+
     public function create(User $user)
 {
     return view('records.create')->with(['users' => $user->get()]);
@@ -31,14 +41,6 @@ class RecordController extends Controller
     return view('records.edit')->with(['record' => $record]);
 }
 
-
-    public function store (RecordRequest $request, Record $record)
-    {
-        $input = $request['record'];
-        $input += ['user_id' => $request->user()->id];
-        $record->fill($input)->save();
-        return redirect('/records/' . $record->id);
-    }    //
     
      public function update (RecordRequest $request, Record $record)
     {
@@ -48,9 +50,5 @@ class RecordController extends Controller
         return redirect('/records/' . $record->id);
     }    //
     
-    public function delete(Record $record)
-    {
-        $record->delete();
-        return redirect('/');
-    }
+   
 }

@@ -23,17 +23,17 @@ Route::get('/dashboard', function () {
 
 
 Route::controller(RecordController::class)->middleware(['auth'])->group(function(){
-    Route::get('/', 'index')->name('index');
+    Route::get('/','index')->name('index');
     Route::post('/records', 'store')->name('store');
     Route::get('/records/create', 'create')->name('create');
     Route::get('/records/{record}', 'show')->name('show');
     Route::put('/records/{record}', 'update')->name('update');
-    Route::delete('/records/{record}', 'delete')->name('delete');
     Route::get('/records/{record}/edit', 'edit')->name('edit');
     
 });
 
-Route::get('/users/{user}', [UserController::class,'index'])->middleware("auth");
+Route::get('/records/usercreate', [UserController::class, 'usercreate']);    
+Route::get('/records/{record}', [UserController::class,'index'])->middleware("auth");
 
 
 

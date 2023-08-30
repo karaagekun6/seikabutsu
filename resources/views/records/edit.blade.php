@@ -9,7 +9,7 @@
     </head>
     <x-app-layout>
         <x-slot name ="header">
-            show
+            edit
         </x-slot>
     <body>
         <h1 class="title">編集画面</h1>
