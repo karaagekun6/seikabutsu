@@ -21,6 +21,7 @@ class RecordController extends Controller
     {
         $input = $request['record'];
         $input += ['user_id' => $request->user()->id];
+        $input += ['trainingmenu_id' => $request->trainingmenu()->id];
         $record->fill($input)->save();
         return redirect('/records/' . $record->id);
     }    //
@@ -31,10 +32,17 @@ class RecordController extends Controller
 }    
 
 
-    public function create(User $user)
+    public function create(User $user, Trainingmenu $trainingmenu)
 {
     return view('records.create')->with(['users' => $user->get()]);
+    }
+    
+     public function usercreate()
+{
+    return view('records.usercreate');
 }
+
+
 
     public function edit(Record $record)
 {

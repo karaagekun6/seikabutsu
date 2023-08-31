@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Record;
+use App\Models\Trainingmenu;
+use Illuminate\Http\Request;
+
 
 class TrainingmenuController extends Controller
 {
@@ -13,5 +15,7 @@ class TrainingmenuController extends Controller
     return $trainingmenu->get();
     //
     }
+    
+    
     
 }

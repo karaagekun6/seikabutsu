@@ -26,6 +26,7 @@ Route::controller(RecordController::class)->middleware(['auth'])->group(function
     Route::get('/','index')->name('index');
     Route::post('/records', 'store')->name('store');
     Route::get('/records/create', 'create')->name('create');
+    Route::get('/records/usercreate','usercreate')->name('usercreate');    
     Route::get('/records/{record}', 'show')->name('show');
     Route::put('/records/{record}', 'update')->name('update');
     Route::get('/records/{record}/edit', 'edit')->name('edit');
