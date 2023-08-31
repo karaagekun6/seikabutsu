@@ -9,6 +9,12 @@ class Trainingmenu extends Model
 {
     use HasFactory;
     
+    protected $fillable = [
+        'id',
+        'name',
+        ];
+    
+    
     public function records()
     {
         return $this->hasMany(Record::class);

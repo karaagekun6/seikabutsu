@@ -21,10 +21,10 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->enum('gender', ['M', 'F'])->nullable();
-            $table->float('height', 3, 1)->nullable();
-            $table->float('weight', 3, 1)->nullable();
-            $table->float('BFP', 2, 1)->nullable();
-            $table->float('goal', 3, 1)->nullable();
+            $table->float('height', 4, 1)->nullable();
+            $table->float('weight', 4, 1)->nullable();
+            $table->float('BFP', 3, 1)->nullable();
+            $table->float('goal', 4, 1)->nullable();
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();

@@ -14,9 +14,10 @@ class UserController extends Controller
     return $user->get();
     //
     }
- 
     public function usercreate()
 {
     return view('records.usercreate');
 }
+
+ 
 }

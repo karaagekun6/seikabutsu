@@ -13,40 +13,63 @@
         <form action="/records" method="POST">
             @csrf
             <div class="name">
-                <h2>名前</h2>
-                <input type="text" name="user[name]"/>
+                 <h2>名前  <input type="text" name="user[name]"/></h2>
             </div>
             <div class="email">
-                Email:<input type="email"/>
+            Email:
+            <input type="email"/>
                 </div>
             <div class="password">
-                Password:<inout type="password" minlength="8"/>
+            Password:
+            <input type="password" minlength="8"/>
                 </div>
-            <div class="gender">
+                <div class="gender">
                 <h2>性別</h2>
-                <input type="radio" name="user[gender]" value="男"/>
-                <input type="radio" name="user[gender]" value="女"/>
-                <input type="radio" name="user[gender]" value="その他"/>
+                男<input type="radio" name="user[gender]" value="男"/>
+                女<input type="radio" name="user[gender]" value="女"/>
+                その他<input type="radio" name="user[gender]" value="その他"/>
             </div>
             <div class="height">
-                <h2>身長</h2>
-                <input type="number" name="user[height]" min="100" max="300"/>cm
+                <h2>身長  <input type="number" name="user[height]" min="100" max="300"/>cm</h2>
                 </div>
             <div class="weight">
-               <h2>最初の体重</h2>
-            　 <input type="number" name="user[weight]" min="0" max="300"/>kg
+               <h2>最初の体重  <input type="number" name="user[weight]" min="0" max="300"/>kg</h2>
                </div>
             <div class="goal">
-                <h2>目標体重</h2>
-                <input type="number" name="user[goal]" min="0" max="300"/>kg
+                <h2>目標体重  
+                <input type="number" name="user[goal]" min="0" max="300"/>kg</h2>
             </div>
             
             
             
             <input type="submit" value="保存"/>
         </form>
-        <div class="footer">
+         <div class="footer">
             <a href="/">戻る</a>
         </div>
+       
+    <?php
+try{
+ $DB_DATABASE = 'blog';
+ $DB_USERNAME = 'dbuser';
+ $DB_PASSWORD = 'nemuina.66M';
+ $DB_OPTION = 'charset=utf8';
+ $PDO_DSN = "mysql:host=localhost;dbname=" . $DB_DATABASE . ";" . $DB_OPTION;
+ $db = new PDO($PDO_DSN, $DB_USERNAME, $DB_PASSWORD,
+ [   PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+ ]);
+ echo 'DB接続成功</br>';
+ $stmt = $db->prepare("select name from users where height=?");
+ $stmt->bindValue(1,'153.0',PDO::PARAM_STR);
+ $stmt->execute();
+ $username = $stmt->fetch(PDO::FETCH_BOTH);
+print_r($username);
+  } catch(PDOException $e){
+ echo 'DB接続失敗';
+}
+?>
+ 
+    
     </body>
+    
 </html>
