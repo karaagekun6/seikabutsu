@@ -19,5 +19,8 @@ class UserController extends Controller
     return view('records.usercreate');
 }
 
- 
+  public function usershow(User $user)
+{
+    return view('records.usershow');
+}
 }

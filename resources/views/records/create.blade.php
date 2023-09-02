@@ -16,17 +16,15 @@
                 <div class="trainingmenu">
                 <h2>運動メニュー</h2>
             <select name="record[trainingmenu_id]"> 
-            <option value="腹筋">腹筋</option>
-            <option value="腕立て伏せ">腕立て伏せ</option>
-            <option value="スクワット">スクワット</option>
-            <option value="プランク">プランク</option>
-            <option value="ヒップリフト">ヒップリフト</option>
-            </select>
+               @foreach($trainingmenus as $trainingmenu)
+            <option value="{{ $trainingmenu->id }}">{{ $trainingmenu->name }}</option>
+               @endforeach
+              </select>
             </div>
             <div class="weight">
                 <h2>体重</h2>
                 <input type="number" name="record[weight]" min="0" max="100"/>kg
-            </div>
+                </div>
             <div class="BFP">
                 <h2>体脂肪率</h2>
                 <input type="number" name="record[BFP]" min="0" max="100"/>%

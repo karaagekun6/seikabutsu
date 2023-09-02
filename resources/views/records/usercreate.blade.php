@@ -47,29 +47,6 @@
          <div class="footer">
             <a href="/">戻る</a>
         </div>
-       
-    <?php
-try{
- $DB_DATABASE = 'blog';
- $DB_USERNAME = 'dbuser';
- $DB_PASSWORD = 'nemuina.66M';
- $DB_OPTION = 'charset=utf8';
- $PDO_DSN = "mysql:host=localhost;dbname=" . $DB_DATABASE . ";" . $DB_OPTION;
- $db = new PDO($PDO_DSN, $DB_USERNAME, $DB_PASSWORD,
- [   PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
- ]);
- echo 'DB接続成功</br>';
- $stmt = $db->prepare("select name from users where height=?");
- $stmt->bindValue(1,'153.0',PDO::PARAM_STR);
- $stmt->execute();
- $username = $stmt->fetch(PDO::FETCH_BOTH);
-print_r($username);
-  } catch(PDOException $e){
- echo 'DB接続失敗';
-}
-?>
- 
-    
-    </body>
+   </body>
     
 </html>

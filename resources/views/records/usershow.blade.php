@@ -3,29 +3,35 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>記録</title>
+        <title>ユーザー</title>
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
     <body>
-        <h2 class="date">
-            {{ $record->date }}
+        <h1 class="name">
+            {{ $user->name }}
+        </h1>
+        <h3 class='email'>
+            {{ $user->email }}
+        </h3>
+        <h3 class='password'>
+            {{ $user->password }}
+        </h3>
+        <h2 class='gender'>
+            {{ $user->gender }}
         </h2>
         <h2 class="weight">
-            {{ $record->weight }}kg
+            {{ $user->weight }}kg
         </h2>
         <h2 class='BFP'>
-            {{ $record->BFP }}%
+            {{ $user->BFP }}%
         </h2>
-        <div class="body">
-            <div class="body_record">
-                <h3><p>{{ $record->body }}</p>  </h3>
-                 
-            </div>
-        </div>
-        <div class="edit">
-            <a href="/records/{{ $record->id }}/edit">編集</a>
-            </div>
+        <h2 class="goal">
+            {{ $user->goal }}kg
+        </h2>
+           
+            
+        
         <div class="footer">
             <a href="/">戻る</a>
         </div>    

@@ -30,11 +30,12 @@ Route::controller(RecordController::class)->middleware(['auth'])->group(function
     Route::get('/records/{record}', 'show')->name('show');
     Route::put('/records/{record}', 'update')->name('update');
     Route::get('/records/{record}/edit', 'edit')->name('edit');
+     Route::get('/records/{record}/usershow', 'usershow')->name('usershow');
     
 });
 
 Route::get('/records/usercreate', [UserController::class, 'usercreate']);    
-Route::get('/records/{record}', [UserController::class,'index'])->middleware("auth");
+
 
 
 
