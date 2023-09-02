@@ -12,11 +12,13 @@ use Illuminate\Http\Request;
 
 class RecordController extends Controller
 {
-    public function index(Record $record)
+    public function index(Record $record, User $user)
     {
-        return view('records/index')->with(['records'=> $record->get()]);
+        return view('records/index')->with(['records'=> $record->get(),
+        'users' => $user->get()]);
+}   
         
-    }
+    
     public function store (RecordRequest $request, Record $record)
     {
         $input = $request['record'];
@@ -26,20 +28,27 @@ class RecordController extends Controller
         return redirect('/records/' . $record->id);
     }    //
     
-    public function show(Record $record)
+    public function show(Record $record, User $user)
 {
-    return view ('records.show')->with(['record' => $record]);
+    return view ('records.show')->with(['record' => $record,
+                                        'users' => $user]);
+}    
+
+public function usershow(User $user)
+{
+   return view ('records.usershow')->with(['user' => $user]);
 }    
 
 
     public function create(User $user, Trainingmenu $trainingmenu)
 {
-    return view('records.create')->with(['users' => $user->get()]);
+    return view('records.create')->with(['trainingmenus' => $trainingmenu->get(), 
+                                         'users' => $user->get()]);
     }
-    
-     public function usercreate()
+   
+     public function usercreate(User $user)
 {
-    return view('records.usercreate');
+    return view('records.usercreate')->with(['users' => $user->get()]);
 }
 
 

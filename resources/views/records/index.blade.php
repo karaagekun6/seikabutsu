@@ -19,17 +19,21 @@
                 <div class="p-6 text-gray-900">
                 <h1>今日の記録</h1>
         <a href='/records/create'>[記録する]</a>
-        <a href='/records/usercreate'>[My page]</a>
         
         <div class='records'>
-          @foreach ($records as $record)
+             @foreach ($records as $record)
             <div class='record'>
-                <p class='time'>時間</p>
-                <p class='date'>日にち</p>
-                <p class='weight'>体重</p>
-                <p class='BFP'>体脂肪率</p>
+                <p class='date'><a href='/records/{{ $record->id }}'>{{ $record->date }}</a></p>
             </div>
-          @endforeach
+       @endforeach
+      
+      
+       <a href='/records/usercreate'>[My page]</a> 
+       @foreach ($users as $user)
+            <div class='user'>
+        　　<p class='name'><a href='/records/{{ $user->id }}/usershow'>{{ $user->name }}</a></p>
+               </div>
+       @endforeach
                 </div>
             </div>
         </div>

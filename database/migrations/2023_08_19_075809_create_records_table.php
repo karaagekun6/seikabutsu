@@ -16,10 +16,9 @@ return new class extends Migration
     {
         Schema::create('records', function (Blueprint $table) {
             $table->id();
-            $table->time('time');
             $table->date('date');
-            $table->float('weight', 3, 1);
-            $table->float('BFP', 2, 1);
+            $table->float('weight', 4, 1);
+            $table->float('BFP', 3, 1);
             $table->string('body', 200);
             $table->timestamps();
             $table->softDeletes();
