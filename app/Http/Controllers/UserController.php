@@ -14,13 +14,37 @@ class UserController extends Controller
     return $user->get();
     //
     }
-    public function usercreate()
-{
-    return view('records.usercreate');
-}
 
-  public function usershow(User $user)
-{
-    return view('records.usershow');
-}
+    public function store(User $user)
+    {
+        $input = $user['user'];
+        $input += ['user_id' => $request->user()->id];
+        $user->fill($input)->save();
+        return redirect('/users/usershow' . $user->id);
+    }
+     public function usercreate(User $user)
+     {
+        return view('users.usercreate')->with(['users' => $user->get()]);
+     }
+     
+     public function usershow(User $user)
+     {
+        return view ('users.usershow')->with(['user' => $user]);
+     }    
+
+    
+    public function useredit(User $user)
+    {
+        return view('users.useredit')->with(['user' => $user]);
+    }
+
+    
+    public function update (UserRequest $request, User $user)
+    {
+        $input_user = $request['user'];
+        $input_user += ['user_id' => $request->user()->id];
+        $user->fill($input)->save();
+        return redirect('/users/usershow' . $user->id);
+    }    //
+ 
 }

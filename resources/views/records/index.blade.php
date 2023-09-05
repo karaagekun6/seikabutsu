@@ -9,7 +9,7 @@
     <x-app-layout>
         <x-slot name="header" >
           <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Index') }}
+            {{ __('トップページ') }}
         </h2>
         </x-slot>
     <body>
@@ -17,24 +17,25 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                <h1>今日の記録</h1>
-        <a href='/records/create'>[記録する]</a>
+         <p class>ユーザー</p> 
+       <div class='users'>
+       @foreach ($users as $user)
+            <div class='user'>
+        <p class='name'><a href='/users/{{ $user->id }}/usershow'>{{ $user->name }}</a></p>
+               </div>
+       @endforeach
+       </div>          
+       <p class>運動記録一覧</p>
         
         <div class='records'>
              @foreach ($records as $record)
             <div class='record'>
-                <p class='date'><a href='/records/{{ $record->id }}'>{{ $record->date }}</a></p>
+         <p class='date'><a href='/records/{{ $record->id }}'>{{ $record->date }}</a></p>
             </div>
        @endforeach
+      </div>
       
-      
-       <a href='/records/usercreate'>[My page]</a> 
-       @foreach ($users as $user)
-            <div class='user'>
-        　　<p class='name'><a href='/records/{{ $user->id }}/usershow'>{{ $user->name }}</a></p>
-               </div>
-       @endforeach
-                </div>
+             
             </div>
         </div>
     </div>

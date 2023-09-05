@@ -26,16 +26,18 @@ Route::controller(RecordController::class)->middleware(['auth'])->group(function
     Route::get('/','index')->name('index');
     Route::post('/records', 'store')->name('store');
     Route::get('/records/create', 'create')->name('create');
-    Route::get('/records/usercreate','usercreate')->name('usercreate');    
     Route::get('/records/{record}', 'show')->name('show');
     Route::put('/records/{record}', 'update')->name('update');
     Route::get('/records/{record}/edit', 'edit')->name('edit');
-     Route::get('/records/{record}/usershow', 'usershow')->name('usershow');
-    
 });
 
-Route::get('/records/usercreate', [UserController::class, 'usercreate']);    
-
+Route::controller(UserController::class)->middleware(['auth'])->group(function(){
+    Route::get('/users/usercreate','usercreate')->name('usercreate'); 
+    Route::get('/users', 'store')->name('store');
+    Route::put('/users/{user}', 'update')->name('update');
+    Route::get('/users/{user}/usershow', 'usershow')->name('usershow');
+    Route::get('/users/{user}/useredit', 'useredit')->name('useredit');
+});
 
 
 

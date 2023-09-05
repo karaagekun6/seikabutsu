@@ -7,6 +7,12 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
+    <x-app-layout>
+        <x-slot name="header" >
+          <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('詳細画面') }}
+        </h2>
+        </x-slot>
     <body>
         <h2 class="date">
             {{ $record->date }}
@@ -30,4 +36,5 @@
             <a href="/">戻る</a>
         </div>    
     </body>
+    </x-app-layout>
 </html>
