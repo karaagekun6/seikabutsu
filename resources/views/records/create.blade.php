@@ -12,22 +12,25 @@
         <h1>今日の記録</h1>
         <form action="/records" method="POST">
             @csrf
-                <input type='date'/>
-                <div class="trainingmenu">
+            <div class="date">
+                <h2>日付</h2>
+                <input type="date" name="record[date]"/>
+            </div>
+            <div class="trainingmenu">
                 <h2>運動メニュー</h2>
             <select name="record[trainingmenu_id]"> 
                @foreach($trainingmenus as $trainingmenu)
             <option value="{{ $trainingmenu->id }}">{{ $trainingmenu->name }}</option>
                @endforeach
               </select>
-            </div>
+            </div> 
             <div class="weight">
                 <h2>体重</h2>
-                <input type="number" name="record[weight]" min="0" max="100"/>kg
+                <input type="number" name="record[weight]" step="0.1" min="0" max="100"/>kg
                 </div>
             <div class="BFP">
                 <h2>体脂肪率</h2>
-                <input type="number" name="record[BFP]" min="0" max="100"/>%
+                <input type="number" name="record[BFP]" step="0.1" min="0" max="100"/>%
             </div>
             <div class="body">
                 <h2>自己評価</h2>

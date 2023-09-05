@@ -23,33 +23,23 @@ class RecordController extends Controller
     {
         $input = $request['record'];
         $input += ['user_id' => $request->user()->id];
-        $input += ['trainingmenu_id' => $request->trainingmenu()->id];
         $record->fill($input)->save();
-        return redirect('/records/' . $record->id);
+        return redirect('/records/' . $record->id,
+                 );
     }    //
     
-    public function show(Record $record, User $user)
+    public function show(Record $record)
 {
-    return view ('records.show')->with(['record' => $record,
-                                        'users' => $user]);
+    return view ('records.show')->with(['record' => $record]);
 }    
 
-public function usershow(User $user)
-{
-   return view ('records.usershow')->with(['user' => $user]);
-}    
-
-
-    public function create(User $user, Trainingmenu $trainingmenu)
+    public function create(Record $record, User $user, Trainingmenu $trainingmenu)
 {
     return view('records.create')->with(['trainingmenus' => $trainingmenu->get(), 
                                          'users' => $user->get()]);
     }
    
-     public function usercreate(User $user)
-{
-    return view('records.usercreate')->with(['users' => $user->get()]);
-}
+     
 
 
 
@@ -59,7 +49,7 @@ public function usershow(User $user)
 }
 
     
-     public function update (RecordRequest $request, Record $record)
+     public function update (RecordRequest $request, Record $record, User $user)
     {
         $input_record = $request['record'];
         $input_record += ['user_id' => $request->user()->id];

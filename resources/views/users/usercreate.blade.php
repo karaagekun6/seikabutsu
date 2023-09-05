@@ -10,7 +10,7 @@
     </head>
     <body>
         <h1>My Page</h1>
-        <form action="/records" method="POST">
+        <form action="/users" method="POST">
             @csrf
             <div class="name">
                  <h2>名前  <input type="text" name="user[name]"/></h2>
@@ -34,6 +34,9 @@
                 </div>
             <div class="weight">
                <h2>最初の体重  <input type="number" name="user[weight]" min="0" max="300"/>kg</h2>
+               </div>
+            <div class="weight">
+               <h2>最初の体脂肪率 <input type="number" name="user[BFP]" min="0" max="100"/>%</h2>
                </div>
             <div class="goal">
                 <h2>目標体重  
