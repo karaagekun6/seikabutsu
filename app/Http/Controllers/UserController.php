@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Record;
 use App\Models\User;
+use App\Http\Requests\UserRequest;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -15,13 +16,14 @@ class UserController extends Controller
     //
     }
 
-    public function store(User $user)
-    {
-        $input = $user['user'];
-        $input += ['user_id' => $request->user()->id];
+    public function userstore(UserRequest $request, User $user)
+    {   
+        $input = $request['user'];
         $user->fill($input)->save();
-        return redirect('/users/usershow' . $user->id);
+        return redirect('/users/' . $user->id);
     }
+    
+     
      public function usercreate(User $user)
      {
         return view('users.usercreate')->with(['users' => $user->get()]);
@@ -31,6 +33,7 @@ class UserController extends Controller
      {
         return view ('users.usershow')->with(['user' => $user]);
      }    
+     
 
     
     public function useredit(User $user)
@@ -39,12 +42,19 @@ class UserController extends Controller
     }
 
     
-    public function update (UserRequest $request, User $user)
+    public function userupdate(UserRequest $request, User $user)
     {
         $input_user = $request['user'];
-        $input_user += ['user_id' => $request->user()->id];
-        $user->fill($input)->save();
-        return redirect('/users/usershow' . $user->id);
+        $user->fill($input_user)->save();
+        return redirect('/users/' . $user->id);
     }    //
+    
+    public function userdelete(User $user)
+    {
+        $user->delete();
+        return redirect('/');
+        
+    }
+    
  
 }

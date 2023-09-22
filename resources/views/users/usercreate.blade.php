@@ -17,35 +17,33 @@
             </div>
             <div class="email">
             Email:
-            <input type="email"/>
+            <input type="email" name="user[email]"/>
                 </div>
             <div class="password">
             Password:
-            <input type="password" minlength="8"/>
+            <input type="password" name="user[password]" minlength="8"/>
                 </div>
-                <div class="gender">
+                <div class='gender'>
                 <h2>性別</h2>
-                男<input type="radio" name="user[gender]" value="男"/>
-                女<input type="radio" name="user[gender]" value="女"/>
-                その他<input type="radio" name="user[gender]" value="その他"/>
+                男→M/女→F/その他→Other
+                <h3><input type='enum' name="user[gender]"/></h3>
             </div>
             <div class="height">
-                <h2>身長  <input type="number" name="user[height]" min="100" max="300"/>cm</h2>
+                <h2>身長  <input type="float" name="user[height]" min="100" max="300"/>cm</h2>
                 </div>
             <div class="weight">
-               <h2>最初の体重  <input type="number" name="user[weight]" min="0" max="300"/>kg</h2>
+               <h2>最初の体重  <input type="float" name="user[weight]" min="0" max="300"/>kg</h2>
                </div>
-            <div class="weight">
-               <h2>最初の体脂肪率 <input type="number" name="user[BFP]" min="0" max="100"/>%</h2>
+            <div class="BFP">
+               <h2>最初の体脂肪率 <input type="float" name="user[BFP]" min="0" max="100"/>%</h2>
                </div>
             <div class="goal">
                 <h2>目標体重  
-                <input type="number" name="user[goal]" min="0" max="300"/>kg</h2>
+                <input type="float" name="user[goal]" min="0" max="300"/>kg</h2>
             </div>
-            
-            
-            
+            <div class="submit">
             <input type="submit" value="保存"/>
+            </div>
         </form>
          <div class="footer">
             <a href="/">戻る</a>

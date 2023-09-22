@@ -2,7 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
-        <title>記録画面</title>
+        <title>トップ</title>
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
@@ -21,8 +21,9 @@
        <div class='users'>
        @foreach ($users as $user)
             <div class='user'>
-        <p class='name'><a href='/users/{{ $user->id }}/usershow'>{{ $user->name }}</a></p>
-               </div>
+        <p class='name'><a href='/users/{{ $user->id }}'>{{ $user->name }}</a></p>
+       
+            </div>
        @endforeach
        </div>          
        <p class>運動記録一覧</p>
@@ -31,11 +32,9 @@
              @foreach ($records as $record)
             <div class='record'>
          <p class='date'><a href='/records/{{ $record->id }}'>{{ $record->date }}</a></p>
-            </div>
+             </div>
        @endforeach
       </div>
-      
-             
             </div>
         </div>
     </div>

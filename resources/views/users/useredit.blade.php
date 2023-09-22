@@ -28,25 +28,24 @@
             </div>
             <div class='gender'>
                 <h2>性別</h2>
-                 男<input type="radio" name="user[gender]" value="{{ $user->gender }}">
-                女<input type="radio" name="user[gender]" value="{{ $user->gender }}">
-                その他<input type="radio" name="user[gender]" value="{{ $user->gender }}">
+                男→M/女→F/その他→Other
+                <h3><input type='enum' name="user[gender]" value="{{ $user->gender }}"></h3>
             </div>
-            <div class="height">
+            <div class='height'>
                <h2>身長</h2>
-              <input type="number" name="user[weight]" value="{{ $user->height }}">cm
+              <input type='number' name="user[height]" step=0.1 value="{{ $user->height }}">cm
               </div>
             <div class='weight'>
                 <h2>体重</h2>
-                <input type='number' name='user[weight]' value="{{ $user->weight }}">kg
+                <input type='number' name='user[weight]' step=0.1 value="{{ $user->weight }}">kg
             </div>
             <div class='BFP'>
                 <h2>体脂肪率</h2>
-                <input type='number' name='user[BFP]' value="{{ $user->BFP }}">%
+                <input type='number' name='user[BFP]' step=0.1 value="{{ $user->BFP }}">%
             </div>
             <div class='goal'>
                 <h2>目標体重</h2>
-                <input type='number' name='user[goal]' value="{{ $user->body }}">kg
+                <input type='number' name='user[goal]' step=0.1 value="{{ $user->goal }}">kg
             </div>
             <input type="submit" value="保存">
         </form>

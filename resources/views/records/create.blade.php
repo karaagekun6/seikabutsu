@@ -5,6 +5,7 @@
         <title>記録</title>
          
          <link href ="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+         <script src="script.js"></script>
    
         
     </head>
@@ -45,8 +46,9 @@
               </select>
             </div>
             
-            
+            <div class="submit">
             <input type="submit" value="保存"/>
+        </div>
         </form>
         <div class="footer">
             <a href="/">戻る</a>
