@@ -7,12 +7,6 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
-     <x-app-layout>
-        <x-slot name="header" >
-          <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('詳細画面') }}
-        </h2>
-        </x-slot>
     <body>
         <h1 class="name">
             {{ $user->name }}
@@ -35,14 +29,29 @@
         <h2 class="goal">
             {{ $user->goal }}kg
         </h2>
+        <form action="/users/{{ $user->id }}" id="form_{{ $user->id }}" method="post">
+             @csrf
+             @method('DELETE')
+             <button type="button" onclick="deleteUser({{ $user->id }})">delete</button> 
+             </form>  
        <div class="edit">
             <a href="/users/{{ $user->id }}/useredit">編集</a>
-            </div>    
+        </div>
+        </div>
             
-        
         <div class="footer">
             <a href="/">戻る</a>
-        </div>    
+        </div>
+        
     </body>
-    </x-app-layout>
+    <script>
+    function deleteUser(id) {
+        'use strict'
+
+        if (confirm('削除すると復元できません。\n本当に削除しますか？')) {
+            document.getElementById(`form_${id}`).submit();
+        }
+        
+    }
+    </script>
 </html>

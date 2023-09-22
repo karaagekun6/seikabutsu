@@ -16,8 +16,8 @@ class UserRequest extends FormRequest
     {
         return [
             'user.password'=>'required|string|min:8',
-            'user.BFP' => 'required|string|max:4',
             'user.weight' => 'required|string|max:5',
+            'user.BFP' => 'required|string|max:4',
             //
         ];
     }

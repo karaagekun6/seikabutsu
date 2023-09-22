@@ -28,16 +28,21 @@ Route::controller(RecordController::class)->middleware(['auth'])->group(function
     Route::get('/records/create', 'create')->name('create');
     Route::get('/records/{record}', 'show')->name('show');
     Route::put('/records/{record}', 'update')->name('update');
+    Route::delete('/records/{record}', 'delete')->name('delete');
     Route::get('/records/{record}/edit', 'edit')->name('edit');
 });
 
 Route::controller(UserController::class)->middleware(['auth'])->group(function(){
+    Route::post('/users', 'userstore')->name('userstore');
     Route::get('/users/usercreate','usercreate')->name('usercreate'); 
-    Route::get('/users', 'store')->name('store');
-    Route::put('/users/{user}', 'update')->name('update');
-    Route::get('/users/{user}/usershow', 'usershow')->name('usershow');
+    Route::get('/users/{user}', 'usershow')->name('usershow');
+    Route::put('/users/{user}', 'userupdate')->name('userupdate');
+    Route::delete('/users/{user}', 'userdelete')->name('userdelete');
     Route::get('/users/{user}/useredit', 'useredit')->name('useredit');
 });
+
+
+    
 
 
 

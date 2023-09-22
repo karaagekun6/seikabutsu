@@ -20,11 +20,12 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->enum('gender', ['M', 'F'])->nullable();
+            $table->enum('gender', ['M', 'F', 'Other'])->nullable();
             $table->float('height', 4, 1)->nullable();
             $table->float('weight', 4, 1)->nullable();
             $table->float('BFP', 3, 1)->nullable();
             $table->float('goal', 4, 1)->nullable();
+            $table->integer('login')->nullable();
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();
