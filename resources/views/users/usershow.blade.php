@@ -8,24 +8,31 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
     <body>
+        <h3>[ユーザー名]</h3>
         <h1 class="name">
             {{ $user->name }}
         </h1>
+        <h3>[E-mail]</h3>
         <h3 class='email'>
             {{ $user->email }}
         </h3>
+        <h3>[性別]</h3>
         <h2 class='gender'>
-            {{ $user->gender }}
+          {{ $user->gender }}
         </h2>
+        <h3>[身長]</h3>
         <h2 class="height">
             {{ $user->height }}cm
         </h2>
+        <h3>[体重]</h3>
         <h2 class="weight">
             {{ $user->weight }}kg
         </h2>
+        <h3>[体脂肪率]</h3>
         <h2 class='BFP'>
             {{ $user->BFP }}%
         </h2>
+        <h3>[目標体重]</h3>
         <h2 class="goal">
             {{ $user->goal }}kg
         </h2>
